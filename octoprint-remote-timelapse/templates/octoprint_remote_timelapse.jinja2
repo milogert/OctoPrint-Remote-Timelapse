@@ -1,0 +1,25 @@
+<h4>Remote Timelapse Settings</h4>
+
+<form class="form-horizontal" onsubmit="return false;">
+    <p>
+        <label for="remote_timelapse_user"><strong>API Token</strong></label>
+        <input class="input-text input-block-level" type="text" id="remote_timelapse_user" data-bind="value: settings.plugins.remote_timelapse.user">
+    </p>
+    <p>
+        <label for="remote_timelapse_password"><strong>API Token</strong></label>
+        <input class="input-text input-block-level" type="text" id="remote_timelapse_password" data-bind="value: settings.plugins.remote_timelapse.password">
+    </p>
+    <p>
+        <label for="remote_timelapse_host"><strong>API Token</strong></label>
+        <input class="input-text input-block-level" type="text" id="remote_timelapse_host" data-bind="value: settings.plugins.remote_timelapse.host">
+    </p>
+    <p>
+        <label for="remote_timelapse_path"><strong>API Token</strong></label>
+        <input class="input-text input-block-level" type="text" id="remote_timelapse_path" data-bind="value: settings.plugins.remote_timelapse.path">
+    </p>
+
+    <p>
+        <label for="remote_timelapse_delete_after_upload"><strong>Delete After Upload?</strong></label>
+        <input class="input-checkbox" type="checkbox" id="remote_timelapse_delete_after_upload" data-bind="checked: settings.plugins.remote_timelapse.delete_after_upload">
+    </p>
+</form>
