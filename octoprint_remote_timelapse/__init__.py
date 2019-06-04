@@ -25,17 +25,20 @@ class RemoteTimelapsePlugin(
             )
         ]
 
+    def add_templatetype(self, current_order, current_rules, *args, **kwargs):
+        return [
+            ("timelapses", dict(), dict(template=lambda x: x + "_timelapsestemplate"))
+        ]
+
     def get_update_information(self):
         return dict(
             remote_timelapse=dict(
                 displayName="Remote Timelapse Plugin",
                 displayVersion=self._plugin_version,
-                # version check: github repository
                 type="github_release",
                 user="milogert",
                 repo="OctoPrint-Remote-Timelapse",
                 current=self._plugin_version,
-                # update method: pip
                 pip="https://github.com/milogert/OctoPrint-Remote-Timelapse/archive/{target_version}.zip",
             )
         )
@@ -106,5 +109,6 @@ def __plugin_load__():
 
     global __plugin_hooks__
     __plugin_hooks__ = {
-        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information
+        "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_update_information,
+        "octoprint.ui.web.templatetypes": __plugin_implementation__.add_templatetype,
     }
